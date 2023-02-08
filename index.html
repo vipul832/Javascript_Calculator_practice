@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>Grid</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -15,15 +15,13 @@
 
     <style>
       .btn{
-        border-radius: 0 !important; 
+        border-radius: 0 !important;
+      }
+      .num-btn{
+        background-color: rgb(255, 255, 255);
       }
     </style>
-
-
   </head>
-
-
-
 
   <body>
     <div
@@ -31,17 +29,18 @@
     >
       <div
         class="cal p-2 pt-3 bg-light rounded-1"
-        style="width: 25rem; height: 37rem"
+        style="width: 25rem; height: 38rem"
       >
+         <div class="col justify-content-start p-1">
 
-        
-        <div class="col justify-content-start p-1">
+          <p class="m-0">Scientific Calculator</p>
+
           <!--Input row-->
-          <div class="row mt-2">
+          <div class="row mt-1">
             <div class="col">
               <input
                 type="text"
-                class="form-control fs-1 fw-bold text-end" id="intext" value="0"
+                class="form-control fs-1 fw-bold text-end border-1 bg-light shadow-none" id="intext"
                 />
             </div>
           </div>
@@ -58,10 +57,10 @@
   
           <!--Third Row-->
           <div class="row mt-2 justify-content-center gap-1">
-            <div class="btn col-2 p-2 btn-light">
+            <div class="btn col-2 p-2 btn-light disabled">
               <span>MC</span>
             </div>
-            <div class="btn col-2 p-2 btn-light">
+            <div class="btn col-2 p-2 btn-light disabled">
               <span>MR</span>
             </div>
             <div class="btn col-2 p-2 btn-light">
@@ -76,68 +75,108 @@
           </div>
   
           <!--Fourth Row-->
-          <div class="row ms-3 mt-1 gap-1">
-            <div class="btn col-5 d-flex btn-light align-items-center">
-              <img src="./trigo.png" alt="trigo" width="15px" class="me-1">
-              <span class="fs-6">Trigonometry</span>
+          <div class="row mt-1 justify-content-start">
+            <!--trigonometry-->
+            <div class="col-5">
+              <div class="dropdown">
+                <button class="btn d-flex align-items-center border-0 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="./trigo.png" alt="" width="21px" class="mx-1">
+                  Trigonometry
+                 <img src="./down-arrow.png" alt="" width="18px" class="mx-1">
+                </button>
+                <ul class="dropdown-menu p-0 rounded-0">
+                  <li class="d-flex justify-content-center">
+                    <button class="btn col-3 btn-light rounded-0">2<sup>nd</sup></button>
+                    <button class="btn col-3 btn-light rounded-0">sin</button>
+                    <button class="btn col-3 btn-light rounded-0">cos</button>
+                    <button class="btn col-3 btn-light rounded-0">tan</button>
+                  </li>
+                  <li class="d-flex justify-content-center">
+                    <button class="btn col-3 btn-light rounded-0">hyp</button>
+                    <button class="btn col-3 btn-light rounded-0">sec</button>
+                    <button class="btn col-3 btn-light rounded-0">csc</button>
+                    <button class="btn col-3 btn-light rounded-0">cot</button>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="btn col-4 p-2 btn-light d-flex">
-              <img src="./function.png" alt="function" width="25px" class="me-3" >  
-              <span>Functions</span>
+
+            <!--function-->
+            <div class="col-5">
+              <div class="dropdown">
+                <button class="btn d-flex align-items-center border-0 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="./function.png" alt="" height="20px" class="mx-1">
+                  Function
+                 <img src="./down-arrow.png" alt="" width="18px" class="mx-1">
+                </button>
+                <div class="dropdown-menu p-0 rounded-0">
+                  <div class="d-flex justify-content-center">
+                    <button class="btn col btn-light rounded-0">|x|</button>
+                    <button class="btn col btn-light rounded-0">⎣x⎦</button>
+                    <button class="btn col btn-light rounded-0">⎡x⎤</button>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button class="btn col btn-light rounded-0">rand</button>
+                    <button class="btn col btn-light rounded-0">&#8594;dms</button>
+                    <button class="btn col btn-light rounded-0">&#8594;deg</button>
+                  </div>
+                </div>
+              </div>
             </div>
+           
           </div>
   
           <div class="row w-auto mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>2 <sup>nd</sup> </span>
+            <div class="btn col-2 p-2 shadow btn-light">
+             2 <sup>nd</sup>
             </div>
             <div class="btn col-2 p-2 shadow btn-light">
-              <span>π</span>
+              π
             </div>
             <div class="btn col-2 p-2 shadow btn-light">
               <span>e</span>
             </div>
-            <div class="btn col-2 p-2 shadow btn-light">
-              <span>C</span>
+            <div class="btn col-2 p-2 shadow btn-light" id="C">
+             C
             </div>
-            <div class="btn col-2 p-2    shadow   btn-light">
-              <span><img src="./clear.png" alt="clear" width="25px"></span>
-            </div>
-          </div>
-  
-          <div class="row   mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2  shadow      btn-light">
-              <span>x <sup>2</sup></span>
-            </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>1/x</span>
-            </div>
-            <div class="btn col-2 p-2  shadow      btn-light">
-              <span>|x|</span>
-            </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>exp</span>
-            </div>
-            <div class="btn col-2 p-2    shadow    btn-light">
-              <span>mod</span>
+            <div class="btn col-2 p-2    shadow   btn-light" id="rl">
+              <img src="./clear.png" alt="clear" width="25px" id="rl">
             </div>
           </div>
   
           <div class="row   mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2    shadow    btn-light">
-              <span><sup>2</sup>&#8730x </span>
-            </div>
-            <div class="btn col-2 p-2    shadow    btn-light">
-              <span>(</span>
-            </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>)</span>
-            </div>
             <div class="btn col-2 p-2  shadow      btn-light">
-              <span>n!</span>
+             x <sup>2</sup>
             </div>
-            <div class="btn col-2 p-2  shadow      btn-light">
-              <span><img src="./divide.png" alt="divide" width="25px"></span>
+            <div class="btn col-2 p-2   shadow     btn-light" id="1/x">
+              1/x
+            </div>
+            <div class="btn col-2 p-2  shadow      btn-light"  >
+              |x|
+            </div>
+            <div class="btn col-2 p-2   shadow     btn-light"  >
+              exp
+            </div>
+            <div class="btn col-2 p-2    shadow    btn-light"  >
+             mod
+            </div>
+          </div>
+  
+          <div class="row   mt-1 gap-1 justify-content-center">
+            <div class="btn col-2 p-2    shadow    btn-light"  >
+              <sup>2</sup>&#8730x
+            </div>
+            <div class="btn col-2 p-2    shadow    btn-light" id="(">
+              (
+            </div>
+            <div class="btn col-2 p-2   shadow     btn-light" id=")">
+              )
+            </div>
+            <div class="btn col-2 p-2  shadow      btn-light" id="fact"  >
+             n!
+            </div>
+            <div class="btn col-2 p-2  shadow      btn-light" id="/"  >
+              <img src="./divide.png" alt="divide" width="25px">
             </div>
           </div>
   
@@ -145,77 +184,74 @@
             <div class="btn col-2 p-2  shadow      btn-light">
               <span>x<sup>y</sup></span>
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="7">
-              <span id="span">7</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="7"  >
+              7
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="8">
-              <span>8</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="8"  >
+              8
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="9">
-              <span>9</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="9"  >
+             9
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>X</span>
+            <div class="btn col-2 p-2   shadow     btn-light" id="*"  >
+             X
             </div>
           </div>
   
           <div class="row   mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2   shadow     btn-light">
+            <div class="btn col-2 p-2   shadow     btn-light"  >
               <span>10<sup>x</sup></span>
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="4" >
-              <span>4</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="4"   >
+              4
             </div>
-            <div class="btn col-2 p-2    shadow    btn-light fw-bold" id="5">
-              <span>5</span>
+            <div class="btn num-btn col-2 p-2    shadow    btn-light fw-bold" id="5"  >
+              5
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="6">
-              <span>6</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="6"  >
+              6
             </div>
-            <div class="btn col-2 p-2  shadow     btn-light">
-              <span>-</span>
-            </div>
-          </div>
-  
-          <div class="row   mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2  shadow      btn-light">
-              <span>log</span>
-            </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="1">
-              <span>1</span>
-            </div>
-            <div class="btn col-2 p-2  shadow      btn-light fw-bold" id="2">
-              <span>2</span>
-            </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="3">
-              <span>3</span>
-            </div>
-            <div class="btn col-2 p-2  shadow      btn-light">
-              <span>+</span>
+            <div class="btn col-2 p-2  shadow     btn-light" id="-"  >
+              -
             </div>
           </div>
   
           <div class="row   mt-1 gap-1 justify-content-center">
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>ln</span>
+            <div class="btn col-2 p-2  shadow      btn-light"  >
+              log
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>+/-</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="1"  >
+              1
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light fw-bold" id="0">
-              <span>0</span>
+            <div class="btn num-btn col-2 p-2  shadow      btn-light fw-bold" id="2"  >
+              2
             </div>
-            <div class="btn col-2 p-2   shadow     btn-light">
-              <span>.</span>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="3"  >
+              3
             </div>
-            <div class="btn active col-2 p-2   shadow     btn-primary">
-              <span>=</span>
+            <div class="btn col-2 p-2  shadow      btn-light" id="+"  >
+             +
             </div>
           </div>
-        </div>
-
-
-
+  
+          <div class="row   mt-1 gap-1 justify-content-center">
+            <div class="btn col-2 p-2   shadow     btn-light"  >
+             ln
+            </div>
+            <div class="btn col-2 p-2   shadow     btn-light"  >
+             +/-
+            </div>
+            <div class="btn num-btn col-2 p-2   shadow     btn-light fw-bold" id="0"  >
+              0
+            </div>
+            <div class="btn col-2 p-2   shadow     btn-light"  >
+             .
+            </div>
+            <div class="btn active col-2 p-2   shadow     btn-primary" id="=">
+             =
+            </div>
+          </div>
+        </div> 
       </div>
     </div>
 
